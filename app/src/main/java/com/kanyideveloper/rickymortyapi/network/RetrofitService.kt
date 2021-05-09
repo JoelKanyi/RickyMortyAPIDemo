@@ -1,6 +1,6 @@
 package com.kanyideveloper.rickymortyapi.network
 
-import com.kanyideveloper.rickymortyapi.data.RickyMortyCharacter
+import com.kanyideveloper.rickymortyapi.model.RickyMortyCharacter
 import com.kanyideveloper.rickymortyapi.utils.Constants.END_POINT
 import retrofit2.http.GET
 import retrofit2.http.Query

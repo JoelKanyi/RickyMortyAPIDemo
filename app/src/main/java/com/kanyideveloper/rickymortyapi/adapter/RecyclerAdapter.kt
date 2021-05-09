@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.kanyideveloper.rickymortyapi.data.CharacterData
+import com.kanyideveloper.rickymortyapi.model.CharacterData
 import com.kanyideveloper.rickymortyapi.databinding.RecyclerRowBinding
 
 
@@ -30,12 +30,8 @@ class RecyclerAdapter : PagingDataAdapter<CharacterData, RecyclerAdapter.MyViewH
 
         fun bind(characterData: CharacterData) {
 
-            binding.characterName.text.apply {
-                characterData.name
-            }
-            binding.characterSpecies.text.apply {
-                characterData.species
-            }
+            binding.characterName.text = characterData.name
+            binding.characterSpecies.text = characterData.species
 
             Glide.with(binding.characterImage)
                 .load(characterData.image)
@@ -50,8 +46,7 @@ class RecyclerAdapter : PagingDataAdapter<CharacterData, RecyclerAdapter.MyViewH
         }
 
         override fun areContentsTheSame(oldItem: CharacterData, newItem: CharacterData): Boolean {
-            return oldItem.name == newItem.name &&
-                    oldItem.species == newItem.species
+            return oldItem == newItem
         }
 
     }

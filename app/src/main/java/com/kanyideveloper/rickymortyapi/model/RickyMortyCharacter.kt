@@ -1,4 +1,4 @@
-package com.kanyideveloper.rickymortyapi.data
+package com.kanyideveloper.rickymortyapi.model
 
 data class RickyMortyCharacter (val info : Info, val results : List<CharacterData>)
 data class CharacterData(val name: String?, val species : String?, val image: String?)
