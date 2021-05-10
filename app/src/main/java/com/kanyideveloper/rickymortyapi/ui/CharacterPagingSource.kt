@@ -1,7 +1,6 @@
-package com.kanyideveloper.rickymortyapi
+package com.kanyideveloper.rickymortyapi.ui
 
 import android.net.Uri
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.kanyideveloper.rickymortyapi.model.CharacterData
@@ -18,7 +17,6 @@ class CharacterPagingSource @Inject constructor(private val mainRepository: Main
         return try {
             val nextPage : Int = params.key ?: FIRST_PAGE_INDEX
             val response = mainRepository.getCharacter(nextPage)
-            Log.d("MainViewModel", "load: ${response.info}")
             var nextPageNumber : Int? = null
 
             if (response.info.next != null){
