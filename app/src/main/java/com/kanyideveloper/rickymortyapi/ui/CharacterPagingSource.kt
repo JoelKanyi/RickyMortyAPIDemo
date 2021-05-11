@@ -4,11 +4,12 @@ import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.kanyideveloper.rickymortyapi.model.CharacterData
+import com.kanyideveloper.rickymortyapi.network.RetrofitService
 import com.kanyideveloper.rickymortyapi.repository.MainRepository
 import java.lang.Exception
 import javax.inject.Inject
 
-class CharacterPagingSource @Inject constructor(private val mainRepository: MainRepository) : PagingSource<Int, CharacterData>() {
+class CharacterPagingSource (private val retrofitService: RetrofitService) : PagingSource<Int, CharacterData>() {
     override fun getRefreshKey(state: PagingState<Int, CharacterData>): Int? {
         return state.anchorPosition
     }
@@ -16,7 +17,7 @@ class CharacterPagingSource @Inject constructor(private val mainRepository: Main
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CharacterData> {
         return try {
             val nextPage : Int = params.key ?: FIRST_PAGE_INDEX
-            val response = mainRepository.getCharacter(nextPage)
+            val response = retrofitService.getCharacters(nextPage)
             var nextPageNumber : Int? = null
 
             if (response.info.next != null){

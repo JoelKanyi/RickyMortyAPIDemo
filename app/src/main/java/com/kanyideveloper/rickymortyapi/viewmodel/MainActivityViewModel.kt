@@ -18,6 +18,6 @@ class MainActivityViewModel @Inject constructor(private val mainRepository: Main
 
     fun getListData() : Flow<PagingData<CharacterData>> {
         return Pager(config = PagingConfig(34, 200),
-        pagingSourceFactory = { CharacterPagingSource(mainRepository) }).flow.cachedIn(viewModelScope)
+        pagingSourceFactory = { CharacterPagingSource(mainRepository.getCharacter()) }).flow.cachedIn(viewModelScope)
     }
 }
