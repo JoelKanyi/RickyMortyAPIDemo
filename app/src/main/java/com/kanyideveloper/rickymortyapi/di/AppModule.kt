@@ -1,5 +1,6 @@
 package com.kanyideveloper.rickymortyapi.di
 
+import com.kanyideveloper.rickymortyapi.data.MainRepository
 import com.kanyideveloper.rickymortyapi.network.RetrofitService
 import com.kanyideveloper.rickymortyapi.utils.Constants.BASE_URL
 import dagger.Module
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit
 @InstallIn(SingletonComponent::class)
 
 @Module
-object NetworkModule{
+object AppModule{
 
     @Provides
     fun providesBaseUrl() : String{
@@ -56,5 +57,10 @@ object NetworkModule{
     @Provides
     fun providesRetrofitService(retrofit: Retrofit) : RetrofitService{
         return retrofit.create(RetrofitService::class.java)
+    }
+
+    @Provides
+    fun providesMainRepository(retrofitService: RetrofitService) : MainRepository {
+        return MainRepository(retrofitService)
     }
 }
