@@ -1,13 +1,11 @@
-package com.kanyideveloper.rickymortyapi.ui
+package com.kanyideveloper.rickymortyapi.data
 
 import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.kanyideveloper.rickymortyapi.model.CharacterData
 import com.kanyideveloper.rickymortyapi.network.RetrofitService
-import com.kanyideveloper.rickymortyapi.repository.MainRepository
 import java.lang.Exception
-import javax.inject.Inject
 
 class CharacterPagingSource (private val retrofitService: RetrofitService) : PagingSource<Int, CharacterData>() {
     override fun getRefreshKey(state: PagingState<Int, CharacterData>): Int? {

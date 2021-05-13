@@ -1,7 +1,7 @@
 package com.kanyideveloper.rickymortyapi.di
 
 import com.kanyideveloper.rickymortyapi.network.RetrofitService
-import com.kanyideveloper.rickymortyapi.repository.MainRepository
+import com.kanyideveloper.rickymortyapi.data.MainRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 object RepositoryModule  {
 
     @Provides
-    fun providesMainRepository(retrofitService: RetrofitService) : MainRepository{
+    fun providesMainRepository(retrofitService: RetrofitService) : MainRepository {
         return MainRepository(retrofitService)
     }
 }
