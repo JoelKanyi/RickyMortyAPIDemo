@@ -33,7 +33,9 @@ Libraries used in the whole application are:
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) -  A dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project
 - [Navigation Components](https://developer.android.com/guide/navigation/navigation-getting-started) -  Helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
 - [Logging Interceptor](https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/README.md) -  logs HTTP request and response data.
-- [Material Libarary](https://material.io/develop/android) -  Modular and customizable Material Design UI components for Android 
+- [Material Libarary](https://material.io/develop/android) -  Modular and customizable Material Design UI components for Android
+- [Glide](https://github.com/bumptech/glide)- An image loading and caching library for Android focused on smooth scrolling.
+
 
 ## Demo
 <p float="left">
